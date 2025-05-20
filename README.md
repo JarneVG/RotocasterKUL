@@ -9,7 +9,7 @@ I changed some of these libraries to add or change functionalities, so be sure t
 
 You should also have the Earle Philhowers Arduino Pico core installed.
 
-A guide:
+Some useful tutorials for uploading:
 
 https://learn.adafruit.com/rp2040-arduino-with-the-earlephilhower-core/installing-the-earlephilhower-core
 
