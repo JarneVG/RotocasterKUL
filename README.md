@@ -8,6 +8,8 @@ Here, you can find the main code under RotocasterMainFirmware (arduino .ino file
 I changed some of these libraries to add or change functionalities, so be sure to add the ones you find here to your Arduino -> libraries directory
 
 You should also have the Earle Philhowers Arduino Pico core installed.
+A guide:
+https://learn.adafruit.com/rp2040-arduino-with-the-earlephilhower-core/installing-the-earlephilhower-core
 
 ## Electrical Hardware
 The KiCAD design files can be found here. If there is something that needs to change, you can find the current version of the project here.
