@@ -13,6 +13,8 @@ A guide:
 
 https://learn.adafruit.com/rp2040-arduino-with-the-earlephilhower-core/installing-the-earlephilhower-core
 
+https://randomnerdtutorials.com/programming-raspberry-pi-pico-w-arduino-ide/
+
 ## Electrical Hardware
 The KiCAD design files can be found here. If there is something that needs to change, you can find the current version of the project here.
 
