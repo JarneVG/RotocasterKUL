@@ -9,6 +9,12 @@ I changed some of these libraries to add or change functionalities, so be sure t
 
 You should also have the Earle Philhowers Arduino Pico core installed.
 
+Some useful tutorials for uploading:
+
+https://learn.adafruit.com/rp2040-arduino-with-the-earlephilhower-core/installing-the-earlephilhower-core
+
+https://randomnerdtutorials.com/programming-raspberry-pi-pico-w-arduino-ide/
+
 ## Electrical Hardware
 The KiCAD design files can be found here. If there is something that needs to change, you can find the current version of the project here.
 
