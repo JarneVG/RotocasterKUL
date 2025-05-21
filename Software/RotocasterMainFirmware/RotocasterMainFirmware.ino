@@ -350,9 +350,12 @@ TMC2130Stepper driver_2 = TMC2130Stepper(EN_PIN_MOTOR_2, DIR_PIN_MOTOR_2, STEP_P
 #define MICROSTEP_1 64
 #define MICROSTEP_2 64
 
+#define MAX_MILLIAMPS_MOTOR_1 600
+#define MAX_MILLIAMPS_MOTOR_2 600
+
 #define maxFrameFreqRPM 30
-int stepFrequency1;
-int stepFrequency2;
+float stepFrequency1;
+float stepFrequency2;
 
 unsigned long microsInterval1;
 unsigned long microsInterval2;
@@ -423,32 +426,32 @@ int editingIndex = -1;      // The index of the setting you're currently editing
 #define numberOfSettings 8  // Define size at compile time
 
 
-int quickStartInnerSpeedStart = 1;
-int quickStartInnerSpeedEnd = 1;
-int quickStartOuterSpeedStart = 4;
-int quickStartOuterSpeedEnd = 4;
-int quickStartDurationHr = 0;
-int quickStartDurationMin = 30;
-int quickStartTempStart = 20;
-int quickStartTempEnd = 20;
+int16_t quickStartInnerSpeedStart = 1;
+int16_t quickStartInnerSpeedEnd = 1;
+int16_t quickStartOuterSpeedStart = 4;
+int16_t quickStartOuterSpeedEnd = 4;
+int16_t quickStartDurationHr = 0;
+int16_t quickStartDurationMin = 30;
+int16_t quickStartTempStart = 20;
+int16_t quickStartTempEnd = 20;
 
-int presetInfoInnerSpeedStart = 30;
-int presetInfoInnerSpeedEnd = 30;
-int presetInfoOuterSpeedStart = 25;
-int presetInfoOuterSpeedEnd = 25;
-int presetInfoDurationHr = 0;
-int presetInfoDurationMin = 1;
-int presetInfoTempStart = 20;
-int presetInfoTempEnd = 20;
+int16_t presetInfoInnerSpeedStart = 30;
+int16_t presetInfoInnerSpeedEnd = 30;
+int16_t presetInfoOuterSpeedStart = 25;
+int16_t presetInfoOuterSpeedEnd = 25;
+int16_t presetInfoDurationHr = 0;
+int16_t presetInfoDurationMin = 1;
+int16_t presetInfoTempStart = 20;
+int16_t presetInfoTempEnd = 20;
 
-int presetAddInnerSpeedStart = 30;
-int presetAddInnerSpeedEnd = 30;
-int presetAddOuterSpeedStart = 25;
-int presetAddOuterSpeedEnd = 25;
-int presetAddDurationHr = 0;
-int presetAddDurationMin = 1;
-int presetAddTempStart = 20;
-int presetAddTempEnd = 20;
+int16_t presetAddInnerSpeedStart = 30;
+int16_t presetAddInnerSpeedEnd = 30;
+int16_t presetAddOuterSpeedStart = 25;
+int16_t presetAddOuterSpeedEnd = 25;
+int16_t presetAddDurationHr = 0;
+int16_t presetAddDurationMin = 1;
+int16_t presetAddTempStart = 20;
+int16_t presetAddTempEnd = 20;
 
 
 // Define settings names
@@ -505,7 +508,7 @@ const uint8_t totalSensorScreenOptions = sizeof(sensorNames) / sizeof(sensorName
 
 
 // Corresponding values
-int quickStartSettingValues[] = {
+int16_t quickStartSettingValues[] = {
   quickStartInnerSpeedStart,
   quickStartInnerSpeedEnd,
   quickStartOuterSpeedStart,
@@ -517,7 +520,7 @@ int quickStartSettingValues[] = {
 };
 
 // Corresponding values
-int presetInfoSettingValues[] = {
+int16_t presetInfoSettingValues[] = {
   presetInfoInnerSpeedStart,
   presetInfoInnerSpeedEnd,
   presetInfoOuterSpeedStart,
@@ -529,7 +532,7 @@ int presetInfoSettingValues[] = {
 };
 
 // Corresponding values
-int presetAddSettingValues[] = {
+int16_t presetAddSettingValues[] = {
   presetAddInnerSpeedStart,
   presetAddInnerSpeedEnd,
   presetAddOuterSpeedStart,
@@ -542,7 +545,7 @@ int presetAddSettingValues[] = {
 
 
 
-int operationSettingValues[8] = { 0 };  // Initialize array to all zeros until confirmed by the user (either quick start or presets)
+int16_t operationSettingValues[8] = { 0 };  // Initialize array to all zeros until confirmed by the user (either quick start or presets)
 float currentTargetInnerSpeed, currentTargetOuterSpeed, currentTargetTemperature;
 float limitedInnerSpeedSetpoint, limitedOuterSpeedSetpoint, limitedTargetTemperatureSetpoint;
 float maxInnerSpeedRate = 6.0;  // max speed change per second
@@ -551,7 +554,7 @@ float maxTemperatureRate = 80;  // max temperature change per second
 
 unsigned long previousRateLimitMillis = 0;
 
-int minSettingValues[] = {
+int16_t minSettingValues[] = {
   -180,
   -180,
   -180,
@@ -562,7 +565,7 @@ int minSettingValues[] = {
   20
 };
 
-int maxSettingValues[] = {
+int16_t maxSettingValues[] = {
   180,
   180,
   180,
@@ -633,7 +636,7 @@ uint32_t now = time_us_32();
 
 void setup() {
   Serial.begin(9600);
-  delay(2000);
+  delay(500);
 
   u8g2.begin();
   homePointer = 2;

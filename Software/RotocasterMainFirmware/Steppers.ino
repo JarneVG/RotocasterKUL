@@ -14,12 +14,12 @@ void initializeSteppers(uint8_t microStep1 = 2, uint8_t microStep2 = 2) {
   pinMode(MISO, INPUT_PULLUP);
 
   driver_1.begin();           // Initiate pins and registeries
-  driver_1.rms_current(1000);  // Set stepper current to 600mA
+  driver_1.rms_current(MAX_MILLIAMPS_MOTOR_1);  // Set stepper current to 600mA
   driver_1.stealthChop(1);    // Enable extremely quiet stepping
   driver_1.microsteps(MICROSTEP_1);
 
   driver_2.begin();           // Initiate pins and registeries
-  driver_2.rms_current(1000);  // Set stepper current to 600mA
+  driver_2.rms_current(MAX_MILLIAMPS_MOTOR_2);  // Set stepper current to 600mA
   driver_2.stealthChop(1);    // Enable extremely quiet stepping
   driver_2.microsteps(MICROSTEP_2);
 
@@ -82,7 +82,7 @@ void setStepperDirections(int dir1, int dir2) {
 #define BELT_TRANSMISSION_RATIO 3
 
 // Motor1 maps to inner frame, motor2 maps to outer frame
-void calculateStepFrequencies(int &stepFrequency1, int &stepFrequency2, float desiredOuterFrameDPS, float desiredInnerFrameDPS, uint8_t microStep1, uint8_t microStep2) {
+void calculateStepFrequencies(float &stepFrequency1, float &stepFrequency2, float desiredOuterFrameDPS, float desiredInnerFrameDPS, uint8_t microStep1, uint8_t microStep2) {
   // Conver
   float desiredOuterFrameHz = desiredOuterFrameDPS / 360;
   float desiredInnerFrameHz = desiredInnerFrameDPS / 360;
@@ -100,8 +100,8 @@ void calculateStepFrequencies(int &stepFrequency1, int &stepFrequency2, float de
   // stepFrequency1 = constrain(stepFrequency1, 0, 1000);
   // stepFrequency2 = constrain(stepFrequency2, 0, 1000);
 
-  stepFrequency2 = (int)(desiredOuterMotorShaftHz * MOTOR_STEPS_PER_ROT * MICROSTEP_2);
-  stepFrequency1 = (int)(desiredInnerMotorShaftHz * MOTOR_STEPS_PER_ROT * MICROSTEP_1);
+  stepFrequency2 = (desiredOuterMotorShaftHz * MOTOR_STEPS_PER_ROT * MICROSTEP_2);
+  stepFrequency1 = (desiredInnerMotorShaftHz * MOTOR_STEPS_PER_ROT * MICROSTEP_1);
 }
 
 
