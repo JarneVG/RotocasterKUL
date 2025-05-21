@@ -1,3 +1,7 @@
+## Original repository
+
+https://github.com/ArduinoGetStarted/buzzer.git
+
 ## Buzzer Library for Arduino - ezBuzzer
 This library is designed for buzzer to beep or play memody without blocking other code.
 
