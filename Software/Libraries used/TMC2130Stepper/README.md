@@ -1,3 +1,7 @@
+## Original repository
+
+https://github.com/teemuatlut/TMC2130Stepper.git
+
 # TMC2130Stepper
 Arduino library for Trinamic TMC2130 Stepper driver
 
