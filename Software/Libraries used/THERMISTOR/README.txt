@@ -1,3 +1,7 @@
+## Original repository
+
+https://github.com/panStamp/thermistor.git
+
 Basic library that reads a NTC thermistor from an analog pin. Calculations relie on
 Steinhart–Hart equation:
 
