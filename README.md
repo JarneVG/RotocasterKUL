@@ -1,5 +1,5 @@
 # RotocasterKUL
-This is the accompanying documentation for the rotocasting machine, made in 2025 for the KU Leuven soft robotics research team.
+This is the accompanying report and documentation for the rotocasting machine, made in 2025 for the KU Leuven soft robotics research team.
 
 
 ## Software
@@ -16,7 +16,7 @@ https://learn.adafruit.com/rp2040-arduino-with-the-earlephilhower-core/installin
 https://randomnerdtutorials.com/programming-raspberry-pi-pico-w-arduino-ide/
 
 ## Electrical Hardware
-The KiCAD design files can be found here. If there is something that needs to change, you can find the current version of the project here.
+The KiCAD design files can be found here. If there is something that needs to change, you can find the current version of the project here. The small problems with the current version are already implemented.
 
 ## Mechanical Hardware
 A .step file is uploaded here to get a better grasp of what might be going on under the covers. This is not a build guide, rather part of the documentation.
