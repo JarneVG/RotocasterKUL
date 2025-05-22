@@ -20,3 +20,4 @@ The KiCAD design files can be found here. If there is something that needs to ch
 
 ## Mechanical Hardware
 A .step file is uploaded here to get a better grasp of what might be going on under the covers. This is not a build guide, rather part of the documentation.
+Same thing for the bill of materials, where you can find all the parts used in this project
